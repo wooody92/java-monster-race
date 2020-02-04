@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class MonsterRace {
-    public static void display() throws IOException {
+    public void display() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("< 스릴만점 건전한 몬스터 경주 >");
@@ -17,23 +17,27 @@ public class MonsterRace {
         int trial = Integer.parseInt(br.readLine());
 
         System.out.println("< 실행 결과 >");
-
-        for(int i=0; i<monsterCnt; i++) {
-            for (int j = 0; j < trial; j++) {
-                calMove();
+        for(int i = 0; i < monsterCnt; i++) {
+            for (int j = 0; j < calMove(trial); j++) {
+                System.out.print("-");
             }
             System.out.println();
         }
         br.close();
     }
 
-    public static void calMove() {
+    public int calMove(int trial) {
         Random rd = new Random();
-        int random = rd.nextInt(10);
+        int moveCnt = 0;
 
-        if (!(random >= 4)) return;
-        for (int i = 0; i < random; i++) {
-            System.out.print("-");
+        for (int i = 0; i < trial; i++) {
+            int random = rd.nextInt(10);
+            if (!(random >= 4)) {
+                random = 0;
+            }
+            moveCnt += random;
         }
+        return moveCnt;
     }
 }
+
