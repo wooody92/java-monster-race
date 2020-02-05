@@ -11,25 +11,31 @@ public class RacingGame {
     public void racing(int trialNumber) {
         System.out.println("< 실행 결과 >");
         for(int i = 0; i < monsterNumber; i++) {
-            for (int j = 0; j < calMove(trialNumber); j++) {
+            for (int j = 0; j < getMoveCnt(trialNumber); j++) {
                 System.out.print("-");
             }
             System.out.println();
         }
     }
 
-    public int calMove(int trialNumber) {
-        Random rd = new Random();
+    public int getMoveCnt(int trialNumber) {
         int moveCnt = 0;
 
-        for (int i = 0; i < trialNumber; i++) {
-            int random = rd.nextInt(10);
-            if (!(random >= 4)) {
-                random = 0;
-            }
-            moveCnt += random;
+        for(int i = 0; i < trialNumber; i++){
+            moveCnt += checkMove();
         }
         return moveCnt;
+    }
+
+    public int checkMove() {
+        Random rd = new Random();
+        int random = rd.nextInt(10);
+        int move = 0;
+
+        if(!(random >= 4)) return 0;
+        move++;
+
+        return move;
     }
 }
 
