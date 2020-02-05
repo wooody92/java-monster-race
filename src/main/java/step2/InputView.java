@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 public class InputView {
     private BufferedReader br;
+
     public InputView() {
         this.br = new BufferedReader(new InputStreamReader(System.in));
     }
@@ -21,6 +22,7 @@ public class InputView {
     public int getTrialNum() throws IOException {
         System.out.println("시도할 회수는 몇 회 인가요? ");
         int trialNumber = Integer.parseInt(br.readLine());
+        br.close();
 
         return trialNumber;
     }
