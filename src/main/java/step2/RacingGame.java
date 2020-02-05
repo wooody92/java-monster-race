@@ -1,21 +1,19 @@
-package step1;
+package step2;
 
 import java.util.Random;
 
 public class RacingGame {
     int monsterNumber;
+    String[] monster;
 
     public RacingGame(int monsterNumber) {
         this.monsterNumber = monsterNumber;
+        this.monster = new String[monsterNumber];
     }
 
     public void racing(int trialNumber) {
-        System.out.println("< 실행 결과 >");
-        String[] monster = new String[monsterNumber];
-
-        for (String moveResult : monster) {
-            moveResult = getMoveResult(trialNumber);
-            System.out.println(moveResult);
+        for (int i = 0; i < monster.length; i++) {
+            this.monster[i] = getMoveResult(trialNumber);
         }
     }
 

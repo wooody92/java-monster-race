@@ -1,4 +1,4 @@
-package step1;
+package step2;
 
 import java.io.IOException;
 
@@ -10,5 +10,7 @@ public class MonsterRace {
 
         RacingGame racingGame = new RacingGame(monsterNumber);
         racingGame.racing(trialNumber);
+
+        ResultView.printResult(racingGame);
     }
 }
