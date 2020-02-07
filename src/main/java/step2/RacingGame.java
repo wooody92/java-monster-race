@@ -1,33 +1,34 @@
 package step2;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class RacingGame {
     int monsterNumber;
     int trialNumber;
-    String[] monster;
+    ArrayList<String> monster;
 
     public RacingGame(int monsterNumber, int trialNumber) {
         this.monsterNumber = monsterNumber;
         this.trialNumber = trialNumber;
-        this.monster = new String[monsterNumber];
+        this.monster = new ArrayList<>();
     }
 
     public void racing() {
-        for (int i = 0; i < monster.length; i++) {
-            this.monster[i] = getMoveResult(trialNumber);
+        for (int i = 0; i < monsterNumber; i++) {
+            this.monster.add(getMoveResult());
         }
     }
 
-    public String getMoveResult(int trialNumber) {
+    public String getMoveResult() {
         String moveResult = "";
-        for (int j = 0; j < getMoveCnt(trialNumber); j++) {
+        for (int j = 0; j < getMoveCnt(); j++) {
             moveResult += "-";
         }
         return moveResult;
     }
 
-    public int getMoveCnt(int trialNumber) {
+    public int getMoveCnt() {
         int moveCnt = 0;
 
         for (int i = 0; i < trialNumber; i++) {
