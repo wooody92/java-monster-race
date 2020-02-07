@@ -8,8 +8,8 @@ public class MonsterRace {
         int monsterNumber = inputView.getMonsterNum();
         int trialNumber = inputView.getTrialNum();
 
-        RacingGame racingGame = new RacingGame(monsterNumber);
-        racingGame.racing(trialNumber);
+        RacingGame racingGame = new RacingGame(monsterNumber, trialNumber);
+        racingGame.racing();
 
         ResultView.printResult(racingGame);
     }

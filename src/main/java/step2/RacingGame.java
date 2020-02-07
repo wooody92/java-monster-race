@@ -4,14 +4,16 @@ import java.util.Random;
 
 public class RacingGame {
     int monsterNumber;
+    int trialNumber;
     String[] monster;
 
-    public RacingGame(int monsterNumber) {
+    public RacingGame(int monsterNumber, int trialNumber) {
         this.monsterNumber = monsterNumber;
+        this.trialNumber = trialNumber;
         this.monster = new String[monsterNumber];
     }
 
-    public void racing(int trialNumber) {
+    public void racing() {
         for (int i = 0; i < monster.length; i++) {
             this.monster[i] = getMoveResult(trialNumber);
         }
