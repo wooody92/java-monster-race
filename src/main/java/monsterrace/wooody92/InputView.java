@@ -19,15 +19,24 @@ public class InputView {
         return monsterNumber;
     }
 
-    public ArrayList getMonsterName() throws IOException {
-        ArrayList<String> monster = new ArrayList<>();
+    public Monster[] getMonster() throws IOException {
+        ArrayList<String> monsterInfo = new ArrayList<>();
         int monsterNumber = getMonsterNumber();
+        Monster[] monster = new Monster[monsterNumber];
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
 
         for (int i = 0; i < monsterNumber; i++) {
-            monster.add(br.readLine());
+            monsterInfo.add(br.readLine());
+            monster[i] = parseMonsterInfo(monsterInfo.get(i));
         }
         return monster;
+    }
+
+    public Monster parseMonsterInfo(String monsterInfo) {
+        String[] monster = monsterInfo.split(",");
+        String name = monster[0].trim();
+        String type = monster[1].trim();
+        return new Monster(name, type);
     }
 
     public int getTrialNum() throws IOException {

@@ -5,17 +5,17 @@ import java.util.Random;
 
 public class RacingGame {
     int trialNumber;
-    ArrayList<String> monster;
+    Monster[] monster;
     ArrayList<String> result;
 
-    public RacingGame(ArrayList<String> monster, int trialNumber) {
+    public RacingGame(Monster[] monster, int trialNumber) {
         this.trialNumber = trialNumber;
         this.monster = monster;
         this.result = new ArrayList<>();
     }
 
     public void racing() {
-        for (int i = 0; i < monster.size(); i++) {
+        for (int i = 0; i < monster.length; i++) {
             this.result.add(getMoveResult());
         }
     }
