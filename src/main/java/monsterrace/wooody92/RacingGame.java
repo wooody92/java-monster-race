@@ -16,7 +16,7 @@ public class RacingGame {
 
     public void racing() {
         for (int i = 0; i < monster.length; i++) {
-            this.result.add(getMoveResult());
+            this.result.add(monster[i].name + "[" + monster[i].type + "]: " +getMoveResult());
         }
     }
 
