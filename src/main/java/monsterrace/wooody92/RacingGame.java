@@ -1,22 +1,22 @@
-package step2;
+package monsterrace.wooody92;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class RacingGame {
-    int monsterNumber;
     int trialNumber;
     ArrayList<String> monster;
+    ArrayList<String> result;
 
-    public RacingGame(int monsterNumber, int trialNumber) {
-        this.monsterNumber = monsterNumber;
+    public RacingGame(ArrayList<String> monster, int trialNumber) {
         this.trialNumber = trialNumber;
-        this.monster = new ArrayList<>();
+        this.monster = monster;
+        this.result = new ArrayList<>();
     }
 
     public void racing() {
-        for (int i = 0; i < monsterNumber; i++) {
-            this.monster.add(getMoveResult());
+        for (int i = 0; i < monster.size(); i++) {
+            this.result.add(getMoveResult());
         }
     }
 
