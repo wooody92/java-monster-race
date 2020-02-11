@@ -24,11 +24,11 @@ abstract class Monster {
 
     public int getMoveCnt() {
         int moveCnt = 0;
-
+        System.out.println("type이 모니? " + type);
         for (int i = 0; i < trialNumber; i++) {
             moveCnt += checkMove();
-            System.out.println("type이 모니? " + type);
         }
+        System.out.println("결과값은? " + moveCnt);
         return moveCnt;
     }
 

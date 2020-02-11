@@ -12,11 +12,31 @@ public class InputView {
         this.br = new BufferedReader(new InputStreamReader(System.in));
     }
 
-    public int getMonsterNumber() throws IOException {
+    public int getMonsterNumber() {
         System.out.println("< 스릴만점 건전한 몬스터 경주 >");
         System.out.println("몬스터는 모두 몇 마리 인가요? ");
-        int monsterNumber = Integer.parseInt(br.readLine());
-        return monsterNumber;
+        return getNumber();
+    }
+
+    public int getTrialNum() {
+        System.out.println("시도할 회수는 몇 회 인가요? ");
+        return getNumber();
+    }
+
+    public int getNumber() {
+        final int ERROR_CHECK = -1;
+        int inputNumber = ERROR_CHECK;
+
+        while (inputNumber == ERROR_CHECK) {
+            try {
+                inputNumber = Integer.parseInt(br.readLine());
+                if (inputNumber < 0) throw new NumberFormatException();
+            } catch (NumberFormatException | IOException e) {
+                System.out.println("양의 정수만 입력 가능합니다. 다시 입력 해주세요.");
+                inputNumber = ERROR_CHECK;
+            }
+        }
+        return inputNumber;
     }
 
     public Monster[] getMonster() throws IOException {
@@ -44,13 +64,5 @@ public class InputView {
         }
         return new Runner(name, type);
     }
-
-    public int getTrialNum() throws IOException {
-        System.out.println("시도할 회수는 몇 회 인가요? ");
-        int trialNumber = Integer.parseInt(br.readLine());
-        br.close();
-        return trialNumber;
-    }
-
 }
 
