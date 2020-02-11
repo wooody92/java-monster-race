@@ -36,14 +36,12 @@ public class InputView {
     }
 
     public Monster[] getMonster() {
-        ArrayList<String> monsterInfo = new ArrayList<>();
         int monsterNumber = getMonsterNumber();
         Monster[] monster = new Monster[monsterNumber];
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
 
         for (int i = 0; i < monsterNumber; i++) {
-            monsterInfo.add(inputStr());
-            monster[i] = parseMonsterInfo(monsterInfo.get(i));
+            monster[i] = createMonster();
         }
         return monster;
     }
@@ -59,17 +57,30 @@ public class InputView {
         return inputStr;
     }
 
-    public Monster parseMonsterInfo(String monsterInfo) {
-        String[] monster = monsterInfo.split(",");
-        String name = monster[0].trim();
-        String type = monster[1].trim();
+    public Monster createMonster() {
+        String monsterInfo = inputStr();
+        try {
+            String[] monster = monsterInfo.split(",");
+            String name = monster[0].trim();
+            String type = monster[1].trim();
 
-        switch (type) {
-            case "1": return new Runner(name, type);
-            case "2": return new Flyer(name, type);
-            case "3": return new Esper(name, type);
+            if (monster.length > 2) throw new ArrayIndexOutOfBoundsException();
+            switch (type) {
+                case "1":
+                    return new Runner(name, type);
+                case "2":
+                    return new Flyer(name, type);
+                case "3":
+                    return new Esper(name, type);
+            }
+            throw new IllegalArgumentException();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("입력 형식은 다음과 같아요. [몬스터 이름, 몬스터 종류]");
+            return createMonster();
+        } catch (IllegalArgumentException e) {
+            System.out.println("몬스터 종류는 다음 중 골라주세요. [달리기, 비행, 에스퍼]");
+            return createMonster();
         }
-        return new Runner(name, type);
     }
 }
 
