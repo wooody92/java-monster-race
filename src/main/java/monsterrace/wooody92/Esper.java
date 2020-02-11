@@ -1,26 +1,20 @@
 package monsterrace.wooody92;
 
-import java.util.Random;
-
 public class Esper extends Monster {
     public Esper(String name, String type) {
         super(name, type);
     }
 
     @Override
-    int checkMove() {
+    int getMove() {
         final int MINIMUM_NUM = 9;
+        final int RANGE = 10;
+        final int ABILITY = 100;
         int move = 0;
 
-        if (!(getRandom() >= MINIMUM_NUM)) return 0;
-        System.out.println("에스퍼임");
-        move+=getRandom2();
+        if (!(getRandom(RANGE) >= MINIMUM_NUM)) return 0;
+        move += getRandom(ABILITY);
 
         return move;
-    }
-
-    public int getRandom2() {
-        Random rd = new Random();
-        return rd.nextInt(100);
     }
 }

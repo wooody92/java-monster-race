@@ -6,13 +6,14 @@ public class Runner extends Monster{
     }
 
     @Override
-    int checkMove() {
+    int getMove() {
         final int MINIMUM_NUM = 4;
+        final int RANGE = 10;
+        final int ABILITY = 1;
         int move = 0;
 
-        if (!(getRandom() >= MINIMUM_NUM)) return 0;
-        System.out.println("러너임");
-        move++;
+        if (!(getRandom(RANGE) >= MINIMUM_NUM)) return 0;
+        move += ABILITY;
 
         return move;
     }

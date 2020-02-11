@@ -6,14 +6,12 @@ import java.util.ArrayList;
 public class MonsterRace {
     public static void main(String[] args) throws IOException {
         InputView inputView = new InputView();
-        //System.out.println(inputView.getTrialNum());
-        System.out.println(inputView.getMonster());
-//        Monster[] monster = inputView.getMonster();
-//        int trialNumber = inputView.getTrialNum();
-//
-//        RacingGame racingGame = new RacingGame(monster, trialNumber);
-//        racingGame.racing();
-//
-//        ResultView.printResult(racingGame);
+        Monster[] monster = inputView.getMonster();
+        int trialNumber = inputView.getTrialNumber();
+
+        RacingGame racingGame = new RacingGame(monster, trialNumber);
+        racingGame.racing();
+
+        ResultView.printResult(racingGame);
     }
 }

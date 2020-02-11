@@ -14,7 +14,7 @@ abstract class Monster {
 
     public String getMoveResult() {
         String moveResult = "";
-        int move = getMoveCnt();
+        int move = getTotalMove();
 
         for (int i = 0; i < move; i++) {
             moveResult += "-";
@@ -22,20 +22,20 @@ abstract class Monster {
         return moveResult;
     }
 
-    public int getMoveCnt() {
-        int moveCnt = 0;
+    public int getTotalMove() {
+        int totalMove = 0;
         System.out.println("type이 모니? " + type);
         for (int i = 0; i < trialNumber; i++) {
-            moveCnt += checkMove();
+            totalMove += getMove();
         }
-        System.out.println("결과값은? " + moveCnt);
-        return moveCnt;
+        System.out.println("결과값은? " + totalMove);
+        return totalMove;
     }
 
-    abstract int checkMove();
+    abstract int getMove();
 
-    public int getRandom() {
+    public int getRandom(int range) {
         Random rd = new Random();
-        return rd.nextInt(10);
+        return rd.nextInt(range);
     }
 }

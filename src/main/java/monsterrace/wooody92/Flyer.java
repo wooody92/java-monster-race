@@ -6,13 +6,14 @@ public class Flyer extends Monster {
     }
 
     @Override
-    int checkMove() {
+    int getMove() {
         final int MINIMUM_NUM = 6;
+        final int RANGE = 10;
+        final int ABILITY = 3;
         int move = 0;
 
-        if (!(getRandom() >= MINIMUM_NUM)) return 0;
-        System.out.println("플라이임");
-        move+=3;
+        if (!(getRandom(RANGE) >= MINIMUM_NUM)) return 0;
+        move += ABILITY;
 
         return move;
     }

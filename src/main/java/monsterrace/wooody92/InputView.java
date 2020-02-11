@@ -18,7 +18,7 @@ public class InputView {
         return getNumber();
     }
 
-    public int getTrialNum() {
+    public int getTrialNumber() {
         System.out.println("시도할 회수는 몇 회 인가요? ");
         return getNumber();
     }
@@ -46,25 +46,14 @@ public class InputView {
         return monster;
     }
 
-    public String inputStr() {
-        String inputStr = null;
-        try {
-            inputStr = br.readLine();
-        } catch (IOException e) {
-            System.out.println("여기서 발생1");
-            e.printStackTrace();
-        }
-        return inputStr;
-    }
-
     public Monster createMonster() {
         String monsterInfo = inputStr();
         try {
             String[] monster = monsterInfo.split(",");
             String name = monster[0].trim();
             String type = monster[1].trim();
-
             if (monster.length > 2) throw new ArrayIndexOutOfBoundsException();
+
             switch (type) {
                 case "1":
                     return new Runner(name, type);
@@ -81,6 +70,16 @@ public class InputView {
             System.out.println("몬스터 종류는 다음 중 골라주세요. [달리기, 비행, 에스퍼]");
             return createMonster();
         }
+    }
+
+    public String inputStr() {
+        String inputStr = null;
+        try {
+            inputStr = br.readLine();
+        } catch (IOException e) {
+            System.out.println("IOException" + e.toString());
+        }
+        return inputStr;
     }
 }
 
