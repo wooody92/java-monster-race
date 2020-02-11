@@ -5,30 +5,21 @@ import java.util.Random;
 abstract class Monster {
     String name;
     String type;
-    int trialNumber = 10;
+    int totalMove;
 
     public Monster(String name, String type) {
         this.name = name;
         this.type = type;
     }
 
-    public String getMoveResult() {
-        String moveResult = "";
-        int move = getTotalMove();
-
-        for (int i = 0; i < move; i++) {
-            moveResult += "-";
-        }
-        return moveResult;
-    }
-
-    public int getTotalMove() {
+    public int getTotalMove(int trialNumber) {
         int totalMove = 0;
         System.out.println("type이 모니? " + type);
         for (int i = 0; i < trialNumber; i++) {
             totalMove += getMove();
         }
         System.out.println("결과값은? " + totalMove);
+        this.totalMove = totalMove;
         return totalMove;
     }
 

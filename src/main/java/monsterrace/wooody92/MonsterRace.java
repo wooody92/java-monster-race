@@ -1,10 +1,7 @@
 package monsterrace.wooody92;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
 public class MonsterRace {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         InputView inputView = new InputView();
         Monster[] monster = inputView.getMonster();
         int trialNumber = inputView.getTrialNumber();

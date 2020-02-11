@@ -3,7 +3,6 @@ package monsterrace.wooody92;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class InputView {
     private BufferedReader br;
@@ -81,5 +80,14 @@ public class InputView {
         }
         return inputStr;
     }
+
+//    enum MonsterType {
+//        RUNNER("달리기"), FLYER("비행"), ESPER("에스퍼");
+//        String monsterType;
+//
+//        MonsterType(String monsterType) {
+//            this.monsterType = monsterType;
+//        }
+//    }
 }
 
