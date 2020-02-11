@@ -36,7 +36,13 @@ public class InputView {
         String[] monster = monsterInfo.split(",");
         String name = monster[0].trim();
         String type = monster[1].trim();
-        return new Monster(name, type);
+
+        switch (type) {
+            case "1": return new Runner(name, type);
+            case "2": return new Flyer(name, type);
+            case "3": return new Esper(name, type);
+        }
+        return new Runner(name, type);
     }
 
     public int getTrialNum() throws IOException {
