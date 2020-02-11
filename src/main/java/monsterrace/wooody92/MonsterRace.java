@@ -7,6 +7,7 @@ public class MonsterRace {
     public static void main(String[] args) throws IOException {
         InputView inputView = new InputView();
         System.out.println(inputView.getTrialNum());
+        //System.out.println(inputView.getMonster());
 //        Monster[] monster = inputView.getMonster();
 //        int trialNumber = inputView.getTrialNum();
 //

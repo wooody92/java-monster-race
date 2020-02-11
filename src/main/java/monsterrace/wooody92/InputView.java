@@ -24,32 +24,39 @@ public class InputView {
     }
 
     public int getNumber() {
-        final int ERROR_CHECK = -1;
-        int inputNumber = ERROR_CHECK;
-
-        while (inputNumber == ERROR_CHECK) {
-            try {
-                inputNumber = Integer.parseInt(br.readLine());
-                if (inputNumber < 0) throw new NumberFormatException();
-            } catch (NumberFormatException | IOException e) {
-                System.out.println("양의 정수만 입력 가능합니다. 다시 입력 해주세요.");
-                inputNumber = ERROR_CHECK;
-            }
+        int inputNumber;
+        try {
+            inputNumber = Integer.parseInt(br.readLine());
+            if (inputNumber < 0) throw new NumberFormatException();
+            return inputNumber;
+        } catch (NumberFormatException | IOException e) {
+            System.out.println("양의 정수만 입력 가능합니다. 다시 입력 해주세요.");
+            return getNumber();
         }
-        return inputNumber;
     }
 
-    public Monster[] getMonster() throws IOException {
+    public Monster[] getMonster() {
         ArrayList<String> monsterInfo = new ArrayList<>();
         int monsterNumber = getMonsterNumber();
         Monster[] monster = new Monster[monsterNumber];
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
 
         for (int i = 0; i < monsterNumber; i++) {
-            monsterInfo.add(br.readLine());
+            monsterInfo.add(inputStr());
             monster[i] = parseMonsterInfo(monsterInfo.get(i));
         }
         return monster;
+    }
+
+    public String inputStr() {
+        String inputStr = null;
+        try {
+            inputStr = br.readLine();
+        } catch (IOException e) {
+            System.out.println("여기서 발생1");
+            e.printStackTrace();
+        }
+        return inputStr;
     }
 
     public Monster parseMonsterInfo(String monsterInfo) {
