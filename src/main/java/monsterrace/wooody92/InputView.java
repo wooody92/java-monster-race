@@ -40,6 +40,7 @@ public class InputView {
         int monsterNumber = getMonsterNumber();
         List<Monster> monster = new ArrayList<>();
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
+        System.out.println("몬스터 종류는 [run, fly, esper]가 있습ㄴ디ㅏ. 입력예시: [honux, fly]");
 
         for (int i = 0; i < monsterNumber; i++) {
             monster.add(createMonster());
@@ -48,6 +49,9 @@ public class InputView {
     }
 
     private Monster createMonster() {
+        final String RUN = "run";
+        final String FLY = "fly";
+        final String ESPER = "esper";
         String monsterInfo = inputStr();
         try {
             String[] monster = monsterInfo.split(",");
@@ -56,19 +60,16 @@ public class InputView {
             if (monster.length > 2) throw new ArrayIndexOutOfBoundsException();
 
             switch (type) {
-                case "1":
-                    return new Runner(name, type);
-                case "2":
-                    return new Flyer(name, type);
-                case "3":
-                    return new Esper(name, type);
+                case RUN: return new Run(name, type);
+                case FLY: return new Fly(name, type);
+                case ESPER: return new Esper(name, type);
             }
             throw new IllegalArgumentException();
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("입력 형식은 다음과 같아요. [몬스터 이름, 몬스터 종류]");
             return createMonster();
         } catch (IllegalArgumentException e) {
-            System.out.println("몬스터 종류는 다음 중 골라주세요. [달리기, 비행, 에스퍼]");
+            System.out.println("몬스터 종류는 다음 중 골라주세요. [run, fly, esper]");
             return createMonster();
         }
     }
@@ -82,18 +83,5 @@ public class InputView {
         }
         return inputStr;
     }
-
-//    enum MonsterType {
-//        RUNNER("달리기"), FLYER("비행"), ESPER("에스퍼");
-//        String monsterType;
-//
-//        MonsterType(String monsterType) {
-//            this.monsterType = monsterType;
-//        }
-//
-//        public String getMonsterType() {
-//            return monsterType;
-//        }
-//    }
 }
 

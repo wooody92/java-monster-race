@@ -1,7 +1,7 @@
 package monsterrace.wooody92;
 
-public class Runner extends Monster{
-    public Runner(String name, String type) {
+public class Run extends Monster{
+    public Run(String name, String type) {
         super(name, type);
     }
 
