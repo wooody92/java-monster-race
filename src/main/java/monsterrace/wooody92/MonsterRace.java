@@ -1,9 +1,11 @@
 package monsterrace.wooody92;
 
+import java.util.List;
+
 public class MonsterRace {
     public static void main(String[] args) {
         InputView inputView = new InputView();
-        Monster[] monster = inputView.getMonster();
+        List<Monster> monster = inputView.getMonster();
         int trialNumber = inputView.getTrialNumber();
 
         RacingGame racingGame = new RacingGame(monster, trialNumber);

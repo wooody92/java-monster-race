@@ -1,21 +1,22 @@
 package monsterrace.wooody92;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RacingGame {
     private int trialNumber;
-    private Monster[] monster;
+    private List<Monster> monster;
     public ArrayList<String> result;
 
-    public RacingGame(Monster[] monster, int trialNumber) {
+    public RacingGame(List<Monster> monster, int trialNumber) {
         this.trialNumber = trialNumber;
         this.monster = monster;
         this.result = new ArrayList<>();
     }
 
     public void racing() {
-        for (int i = 0; i < monster.length; i++) {
-            this.result.add(monster[i].getName() + "[" + monster[i].getType() + "]: " + getMoveResult(i));
+        for (int i = 0; i < monster.size(); i++) {
+            this.result.add(monster.get(i).getName() + "[" + monster.get(i).getType() + "]: " + getMoveResult(i));
         }
     }
 
@@ -31,9 +32,9 @@ public class RacingGame {
 
     private int getTotalMove(int idx) {
         int totalMove = 0;
-        System.out.println("type이 모니? " + monster[idx].getType());
+        System.out.println("type이 모니? " + monster.get(idx).getType());
         for (int i = 0; i < trialNumber; i++) {
-            totalMove += monster[idx].getMove();
+            totalMove += monster.get(idx).getMove();
         }
         System.out.println("결과값은? " + totalMove);
         return totalMove;

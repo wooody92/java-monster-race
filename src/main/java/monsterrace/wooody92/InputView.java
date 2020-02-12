@@ -3,6 +3,8 @@ package monsterrace.wooody92;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputView {
     private BufferedReader br;
@@ -34,13 +36,13 @@ public class InputView {
         }
     }
 
-    public Monster[] getMonster() {
+    public List<Monster> getMonster() {
         int monsterNumber = getMonsterNumber();
-        Monster[] monster = new Monster[monsterNumber];
+        List<Monster> monster = new ArrayList<>();
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
 
         for (int i = 0; i < monsterNumber; i++) {
-            monster[i] = createMonster();
+            monster.add(createMonster());
         }
         return monster;
     }
