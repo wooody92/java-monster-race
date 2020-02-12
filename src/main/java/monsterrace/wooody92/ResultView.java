@@ -6,5 +6,6 @@ public class ResultView {
         for (String resultMove : racingGame.result) {
             System.out.println(resultMove);
         }
+        System.out.println("\n축하합니다! 우승자는 바로: " + racingGame.getWinner());
     }
 }
