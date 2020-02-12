@@ -7,7 +7,7 @@ public class RacingGame {
     private int trialNumber;
     private List<Monster> monster;
     private List<Integer> move;
-    public ArrayList<String> result;
+    public List<String> result;
 
     public RacingGame(List<Monster> monster, int trialNumber) {
         this.trialNumber = trialNumber;
@@ -18,19 +18,18 @@ public class RacingGame {
 
     public void racing() {
         for (int i = 0; i < monster.size(); i++) {
-            //this.result.add(monster.get(i) + getMoveResult(i));
-            System.out.println(monster.get(i) + getMoveResult(i));
+            this.result.add(monster.get(i) + getMoveResult(i));
         }
     }
 
     private String getMoveResult(int idx) {
-        String moveResult = "";
+        StringBuilder sb = new StringBuilder();
         int move = getTotalMove(idx);
 
         for (int i = 0; i < move; i++) {
-            moveResult += "-";
+            sb.append("-");
         }
-        return moveResult;
+        return sb.toString();
     }
 
     private int getTotalMove(int idx) {
