@@ -40,7 +40,7 @@ public class InputView {
         int monsterNumber = getMonsterNumber();
         List<Monster> monster = new ArrayList<>();
         System.out.println("경주할 몬스터 이름과 종류를 입력하세요 (쉼표(,)를 기준으로 구분)");
-        System.out.println("몬스터 종류는 [run, fly, esper]가 있습ㄴ디ㅏ. 입력예시: [honux, fly]");
+        System.out.println("몬스터 종류는 [run, fly, esper]가 있습니다. 입력예시: [honux, fly]");
 
         for (int i = 0; i < monsterNumber; i++) {
             monster.add(createMonster());
@@ -84,4 +84,3 @@ public class InputView {
         return inputStr;
     }
 }
-
