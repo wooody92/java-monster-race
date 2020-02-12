@@ -21,7 +21,7 @@ public class RacingGame {
 
     public String getMoveResult(int idx) {
         String moveResult = "";
-        int move = monster[idx].getTotalMove(trialNumber);
+        int move = getTotalMove(idx);
 
         for (int i = 0; i < move; i++) {
             moveResult += "-";
@@ -29,19 +29,29 @@ public class RacingGame {
         return moveResult;
     }
 
-    public void getWinner() {
-        int temp = 0;
-        String tempS = "";
-
-        for (int i = 0; i < monster.length; i++) {
-            System.out.println("total move: " + monster[i].totalMove);
-
-            if (monster[i].totalMove > temp) {
-                temp = monster[i].totalMove;
-                tempS = monster[i].name;
-            }
+    public int getTotalMove(int idx) {
+        int totalMove = 0;
+        System.out.println("type이 모니? " + monster[idx].type);
+        for (int i = 0; i < trialNumber; i++) {
+            totalMove += monster[idx].getMove();
         }
-        System.out.println("우스자는 " + tempS);
+        System.out.println("결과값은? " + totalMove);
+        return totalMove;
     }
+
+//    public void getWinner() {
+//        int temp = 0;
+//        String tempS = "";
+//
+//        for (int i = 0; i < monster.length; i++) {
+//            System.out.println("total move: " + totalMove);
+//
+//            if (totalMove > temp) {
+//                temp = totalMove;
+//                tempS = monster[i].name;
+//            }
+//        }
+//        System.out.println("우스자는 " + tempS);
+//    }
 
 }

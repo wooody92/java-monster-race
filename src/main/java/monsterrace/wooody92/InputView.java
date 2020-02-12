@@ -88,6 +88,10 @@ public class InputView {
 //        MonsterType(String monsterType) {
 //            this.monsterType = monsterType;
 //        }
+//
+//        public String getMonsterType() {
+//            return monsterType;
+//        }
 //    }
 }
 
