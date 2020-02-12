@@ -3,9 +3,9 @@ package monsterrace.wooody92;
 import java.util.ArrayList;
 
 public class RacingGame {
-    int trialNumber;
-    Monster[] monster;
-    ArrayList<String> result;
+    private int trialNumber;
+    private Monster[] monster;
+    public ArrayList<String> result;
 
     public RacingGame(Monster[] monster, int trialNumber) {
         this.trialNumber = trialNumber;
@@ -19,7 +19,7 @@ public class RacingGame {
         }
     }
 
-    public String getMoveResult(int idx) {
+    private String getMoveResult(int idx) {
         String moveResult = "";
         int move = getTotalMove(idx);
 
@@ -29,7 +29,7 @@ public class RacingGame {
         return moveResult;
     }
 
-    public int getTotalMove(int idx) {
+    private int getTotalMove(int idx) {
         int totalMove = 0;
         System.out.println("type이 모니? " + monster[idx].type);
         for (int i = 0; i < trialNumber; i++) {

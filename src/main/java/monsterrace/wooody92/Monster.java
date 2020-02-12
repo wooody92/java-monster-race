@@ -3,8 +3,8 @@ package monsterrace.wooody92;
 import java.util.Random;
 
 abstract class Monster {
-    String name;
-    String type;
+    public String name;
+    public String type;
 
     public Monster(String name, String type) {
         this.name = name;

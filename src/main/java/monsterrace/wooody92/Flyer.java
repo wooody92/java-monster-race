@@ -6,7 +6,7 @@ public class Flyer extends Monster {
     }
 
     @Override
-    int getMove() {
+    public int getMove() {
         final int MINIMUM_NUM = 6;
         final int RANGE = 10;
         final int ABILITY = 3;

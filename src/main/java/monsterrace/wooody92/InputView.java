@@ -22,7 +22,7 @@ public class InputView {
         return getNumber();
     }
 
-    public int getNumber() {
+    private int getNumber() {
         int inputNumber;
         try {
             inputNumber = Integer.parseInt(br.readLine());
@@ -45,7 +45,7 @@ public class InputView {
         return monster;
     }
 
-    public Monster createMonster() {
+    private Monster createMonster() {
         String monsterInfo = inputStr();
         try {
             String[] monster = monsterInfo.split(",");
@@ -71,7 +71,7 @@ public class InputView {
         }
     }
 
-    public String inputStr() {
+    private String inputStr() {
         String inputStr = null;
         try {
             inputStr = br.readLine();
