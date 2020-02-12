@@ -19,6 +19,10 @@ abstract class Monster {
         return this.type;
     }
 
+    public String toString() {
+        return name + "[" + type + "]: ";
+    }
+
     abstract int getMove();
 
     public int getRandom(int range) {

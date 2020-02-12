@@ -18,7 +18,8 @@ public class RacingGame {
 
     public void racing() {
         for (int i = 0; i < monster.size(); i++) {
-            this.result.add(monster.get(i).getName() + "[" + monster.get(i).getType() + "]: " + getMoveResult(i));
+            //this.result.add(monster.get(i) + getMoveResult(i));
+            System.out.println(monster.get(i) + getMoveResult(i));
         }
     }
 
@@ -34,11 +35,9 @@ public class RacingGame {
 
     private int getTotalMove(int idx) {
         int totalMove = 0;
-        System.out.println("type이 모니? " + monster.get(idx).getType());
         for (int i = 0; i < trialNumber; i++) {
             totalMove += monster.get(idx).getMove();
         }
-        System.out.println("결과값은? " + totalMove);
         move.add(totalMove);
         return totalMove;
     }
