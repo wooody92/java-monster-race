@@ -25,7 +25,6 @@ public class RacingGame {
     private String getMoveResult(int idx) {
         StringBuilder sb = new StringBuilder();
         int move = getTotalMove(idx);
-
         for (int i = 0; i < move; i++) {
             sb.append("-");
         }
