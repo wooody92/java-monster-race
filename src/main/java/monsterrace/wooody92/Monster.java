@@ -23,7 +23,7 @@ abstract class Monster {
         return name + "[" + type + "]: ";
     }
 
-    abstract int getMove();
+    abstract int move();
 
     public int getRandom(int range) {
         Random rd = new Random();

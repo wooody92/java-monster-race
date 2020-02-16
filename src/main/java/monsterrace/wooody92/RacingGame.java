@@ -34,7 +34,7 @@ public class RacingGame {
     private int getTotalMove(int idx) {
         int totalMove = 0;
         for (int i = 0; i < trialNumber; i++) {
-            totalMove += monster.get(idx).getMove();
+            totalMove += monster.get(idx).move();
         }
         move.add(totalMove);
         return totalMove;

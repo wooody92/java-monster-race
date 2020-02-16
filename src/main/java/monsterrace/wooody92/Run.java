@@ -6,7 +6,7 @@ public class Run extends Monster{
     }
 
     @Override
-    public int getMove() {
+    public int move() {
         final int MINIMUM_NUM = 4;
         final int RANGE = 10;
         final int ABILITY = 1;

@@ -6,7 +6,7 @@ public class Esper extends Monster {
     }
 
     @Override
-    public int getMove() {
+    public int move() {
         final int MINIMUM_NUM = 9;
         final int RANGE = 10;
         final int ABILITY = 100;
