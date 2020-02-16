@@ -43,9 +43,7 @@ public class RacingGame {
     public String getWinner() {
         int idx = 0;
         for (Integer value : move) {
-            if (value > move.get(idx)){
-                idx = move.indexOf(value);
-            }
+            idx = (value > move.get(idx)) ? move.indexOf(value) : idx;
         }
         return monster.get(idx).getName();
     }
